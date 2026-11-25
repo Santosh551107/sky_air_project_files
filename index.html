@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sky &amp; Air | Local Conditions Planner</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header><b>☀ Sky &amp; Air</b><span>Australian local conditions planner</span></header>
+  <main>
+    <section class="hero">
+      <small>WEATHER • AIR QUALITY • LOCATION</small>
+      <h1>Plan your day with a clearer picture.</h1>
+      <p>Search an Australian suburb or postcode to view local weather, air-quality indicators and a map.</p>
+      <form id="form">
+        <label class="sr" for="place">Australian suburb or postcode</label>
+        <input id="place" maxlength="100" placeholder="Try Parramatta, NSW" required>
+        <button id="go">Check conditions</button>
+        <button id="current-location" type="button" class="secondary">Use my current location</button>
+      </form>
+      <p class="hint">Search is user-initiated. Autocomplete is not provided.</p>
+      <p id="status" role="status">Enter a location to begin.</p>
+    </section>
+
+    <section id="results" hidden>
+      <div class="heading">
+        <div><small>YOUR LOCATION</small><h2 id="name"></h2></div>
+        <span id="time"></span>
+      </div>
+      <div class="grid">
+        <article class="card blue">
+          <small>CURRENT WEATHER</small>
+          <div class="temp"><strong id="temp">--</strong><span id="desc">--</span></div>
+          <div class="metrics">
+            <div>Feels like<strong id="feels">--</strong></div>
+            <div>Humidity<strong id="humidity">--</strong></div>
+            <div>Wind<strong id="wind">--</strong></div>
+            <div>Rain<strong id="rain">--</strong></div>
+          </div>
+        </article>
+        <article class="card">
+          <small>AIR QUALITY</small>
+          <div class="aqi"><strong id="aqi">--</strong><b id="aqilabel">Awaiting data</b></div>
+          <p id="aqinote"></p>
+          <div class="metrics">
+            <div>PM2.5<strong id="pm25">--</strong></div>
+            <div>PM10<strong id="pm10">--</strong></div>
+            <div>Ozone<strong id="ozone">--</strong></div>
+            <div>NO₂<strong id="no2">--</strong></div>
+          </div>
+        </article>
+      </div>
+      <article class="card">
+        <small>ACTIVITY GUIDANCE</small>
+        <h3 id="recTitle">Conditions summary</h3>
+        <p id="rec"></p>
+      </article>
+      <article class="card">
+        <small>FIVE-DAY OUTLOOK</small>
+        <h2>Forecast</h2>
+        <div id="forecast" class="forecast"></div>
+      </article>
+      <article class="card">
+        <small>GEOGRAPHIC CONTEXT</small>
+        <h2>Location map</h2>
+        <div id="map"></div>
+        <p id="map-note" class="attribution">Loading map tiles...</p>
+        <p class="attribution">Map imagery attribution is shown on the map and depends on the tile provider.</p>
+      </article>
+    </section>
+
+    <footer>
+      Weather and air-quality data: <a href="https://open-meteo.com/">Open-Meteo</a> (CC BY 4.0). Location and map data: <a href="https://www.openstreetmap.org/">OpenStreetMap</a>.
+      <p>Information is indicative and may be delayed or incomplete. It is not medical, emergency or official safety advice.</p>
+    </footer>
+  </main>
+</body>
+</html>
